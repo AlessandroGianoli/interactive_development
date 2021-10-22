@@ -6,3 +6,13 @@ services:
             - "8888:8888" 
         volumes:
             - .:/home/jovyan
+    this_postgres:
+        build: docker/postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: ale
+            POSTGRES_DB: postgres
+        volumes:
+        - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
